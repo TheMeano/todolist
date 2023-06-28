@@ -1,0 +1,34 @@
+<%- include("header") -%>
+
+<body>
+
+  <div class="box" id="heading">
+    <h1><%= listTitle %></h1>
+  </div>
+
+  <div class="box">
+    <% newListItem.forEach(function(item){ %>
+      <div class="item">
+        <input type="checkbox" name="checkbox" value="<%= item._id %>">
+        
+        <p><%= item.goal %></p>
+        <form class="item" action="/<%= customListName %>/delete" method="post">
+          <input type="hidden" name="itemId" value="<%= item._id %>"> <!-- Pass the itemId as a hidden input field -->
+          <button type="submit"><i class="fa-solid fa-trash"></i></button>
+        </form>
+      </div>
+    <% }); %>
+    
+    <form class="item" action="/<%= customListName %>" method="post">
+      <input type="text" name="newItem" placeholder="New Item" autocomplete="off" id="newItem" autofocus>
+      <button type="submit" name="list" value="<%= listTitle %>">+</button>
+    </form>
+
+    
+  </div>
+  <script src="https://kit.fontawesome.com/8f854ae4b1.js" crossorigin="anonymous"></script>
+</body>
+
+<%- include("footer") -%>
+
+</html>
