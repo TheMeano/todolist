@@ -5,7 +5,7 @@ const date = require(__dirname + "/date.js");
 const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
 
-const uri = "mongodb+srv://Meano:1aqr1hPThjH69uKu@cluster0.3nmf3fk.mongodb.net/todolist?retryWrites=true&w=majority";
+const uri = "<<YOUR MONGODB ATLAS URI>>";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
 let items = []
@@ -76,12 +76,6 @@ app.post("/delete", async function (req, res) {
 
   res.redirect("/");
 });
-
-// ... your existing code ...
-
-// ... your existing code ...
-
-// ... your existing code ...
 
 app.get("/:customListName", async (req, res) => {
   const customListName = req.params.customListName;
